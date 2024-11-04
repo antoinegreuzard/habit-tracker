@@ -23,6 +23,10 @@ jobs:
         with:
           node-version: '20' # Utilisez la version de Node.js appropriée pour votre projet
 
+      # Install pnpm
+      - name: Install pnpm
+        run: npm install -g pnpm
+
       # Install dependencies
       - name: Install dependencies
         run: pnpm install
