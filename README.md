@@ -37,11 +37,11 @@ habit-tracker/
 │   │   │   ├── HabitCard.svelte    # Component for each habit display
 │   │   │   ├── HabitList.svelte    # List of all habits
 │   │   │   └── ProgressRing.svelte # Visual progress ring for habits
-│   │   └── styles/         # Global SCSS styles
-│   ├── stores/             # Svelte stores for global state
-│   │   └── habitsStore.ts  # Store for managing habit data
-│   ├── utils/              # Utility functions
-│   │   └── formatDate.ts   # Function to format dates
+│   │   ├── styles/         # Global SCSS styles
+│   │   ├── stores/             # Svelte stores for global state
+│   │   │   └── habitsStore.ts  # Store for managing habit data
+│   │   └── utils/              # Utility functions
+│   │       └── formatDate.ts   # Function to format dates
 │   └── app.html            # Main HTML template
 ├── svelte.config.js        # Svelte configuration
 ├── tsconfig.json           # TypeScript configuration
