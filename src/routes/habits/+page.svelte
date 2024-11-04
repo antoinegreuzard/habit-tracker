@@ -15,35 +15,6 @@
 	}
 </script>
 
-<style lang="scss">
-  .habit-page {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .add-habit-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .add-habit-form input,
-  .add-habit-form select,
-  .add-habit-form button {
-    padding: 0.5rem;
-    font-size: 1rem;
-  }
-
-  .habit-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-  }
-</style>
-
 <div class="habit-page">
 	<h1 class="habit-title">Suivi des Habitudes</h1>
 
@@ -64,3 +35,32 @@
 
 	<HabitList />
 </div>
+
+<style lang="scss">
+	.habit-page {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		max-width: 600px;
+		margin: 0 auto;
+	}
+
+	.add-habit-form {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.add-habit-form input,
+	.add-habit-form select,
+	.add-habit-form button {
+		padding: 0.5rem;
+		font-size: 1rem;
+	}
+
+	.habit-title {
+		font-size: 1.5rem;
+		font-weight: bold;
+		text-align: center;
+	}
+</style>

@@ -1,4 +1,3 @@
-*
 <!-- src/routes/habits/[id].svelte -->
 <script lang="ts">
 	import { page } from '$app/stores';
@@ -13,7 +12,8 @@
 
 	// Récupère l'ID de la route pour afficher l'habitude correspondante
 	$: habitId = $page.params.id;
-	$: habit = get(habitsStore).find(h => h.id === habitId);
+	console.log(habitId);
+	$: habit = get(habitsStore).find((h) => h.id === habitId);
 
 	// Calcul de la progression en pourcentage
 	$: progress = habit
@@ -28,41 +28,6 @@
 	}
 </script>
 
-<style lang="scss">
-  .habit-details {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .habit-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    text-align: center;
-  }
-
-  .progress-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .complete-button {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    background-color: #4caf50;
-    color: white;
-    font-size: 1rem;
-  }
-</style>
-
 {#if habit}
 	<div class="habit-details">
 		<h1 class="habit-title">{habit.name}</h1>
@@ -76,11 +41,48 @@
 		<button
 			class="complete-button"
 			on:click={completeToday}
-			disabled={habit.completedDates.some(date => formatDate(date) === formatDate(today))}
+			disabled={habit.completedDates.some((date) => formatDate(date) === formatDate(today))}
 		>
-			{habit.completedDates.some(date => formatDate(date) === formatDate(today)) ? 'Complété aujourd\'hui' : 'Marquer comme complété'}
+			{habit.completedDates.some((date) => formatDate(date) === formatDate(today))
+				? "Complété aujourd'hui"
+				: 'Marquer comme complété'}
 		</button>
 	</div>
 {:else}
 	<p>Habitude non trouvée.</p>
 {/if}
+
+<style lang="scss">
+	.habit-details {
+		max-width: 600px;
+		margin: 0 auto;
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	.habit-title {
+		font-size: 1.8rem;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.progress-section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.complete-button {
+		padding: 0.75rem 1.5rem;
+		border: none;
+		border-radius: 0.25rem;
+		cursor: pointer;
+		background-color: #4caf50;
+		color: white;
+		font-size: 1rem;
+	}
+</style>

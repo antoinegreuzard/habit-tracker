@@ -1,7 +1,6 @@
 <!-- src/routes/+page.svelte -->
 <script lang="ts">
-	import { habitsStore, addHabit, markHabitCompleted } from '$lib/stores/habitsStore';
-	import { Habit } from '$lib/stores/habitsStore';
+	import { addHabit, type Habit, habitsStore, markHabitCompleted } from '$lib/stores/habitsStore';
 	import { formatDate } from '$lib/utils/formatDate';
 
 	let newHabitName = '';
@@ -21,34 +20,6 @@
 		markHabitCompleted(habit.id, today);
 	}
 </script>
-
-<style lang="scss">
-  .habit-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .habit-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 0.5rem;
-  }
-
-  .add-habit {
-    display: flex;
-    gap: 0.5rem;
-  }
-
-  .add-habit input,
-  .add-habit select,
-  .add-habit button {
-    padding: 0.5rem;
-  }
-</style>
 
 <h1>Habit Tracker</h1>
 
@@ -72,8 +43,38 @@
 		<div class="habit-item">
 			<span>{habit.name} - {habit.frequency}</span>
 			<button on:click={() => completeHabit(habit)}>
-				{habit.completedDates.some(date => formatDate(date) === formatDate(today)) ? 'Complété' : 'Compléter'}
+				{habit.completedDates.some((date) => formatDate(date) === formatDate(today))
+					? 'Complété'
+					: 'Compléter'}
 			</button>
 		</div>
 	{/each}
 </div>
+
+<style lang="scss">
+	.habit-list {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.habit-item {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1rem;
+		border: 1px solid #ddd;
+		border-radius: 0.5rem;
+	}
+
+	.add-habit {
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	.add-habit input,
+	.add-habit select,
+	.add-habit button {
+		padding: 0.5rem;
+	}
+</style>

@@ -12,36 +12,14 @@
 	const strokeDashoffset = circumference - (progress / 100) * circumference;
 </script>
 
-<style lang="scss">
-  .progress-ring {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 120px;
-    height: 120px;
-  }
-
-  .progress-ring__circle {
-    transition: stroke-dashoffset 0.35s;
-    transform: rotate(-90deg);
-    transform-origin: 50% 50%;
-  }
-
-  .progress-ring__text {
-    font-size: 1.2rem;
-    font-weight: bold;
-    fill: #333;
-  }
-</style>
-
 <div class="progress-ring">
 	<svg width="120" height="120">
 		<circle
 			class="progress-ring__circle"
 			stroke="#e6e6e6"
 			fill="transparent"
-			stroke-width="{stroke}"
-			r="{normalizedRadius}"
+			stroke-width={stroke}
+			r={normalizedRadius}
 			cx="60"
 			cy="60"
 		/>
@@ -49,10 +27,10 @@
 			class="progress-ring__circle"
 			stroke="#4caf50"
 			fill="transparent"
-			stroke-width="{stroke}"
+			stroke-width={stroke}
 			stroke-dasharray="{circumference} {circumference}"
-			stroke-dashoffset="{strokeDashoffset}"
-			r="{normalizedRadius}"
+			stroke-dashoffset={strokeDashoffset}
+			r={normalizedRadius}
 			cx="60"
 			cy="60"
 		/>
@@ -61,3 +39,25 @@
 		</text>
 	</svg>
 </div>
+
+<style lang="scss">
+	.progress-ring {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 120px;
+		height: 120px;
+	}
+
+	.progress-ring__circle {
+		transition: stroke-dashoffset 0.35s;
+		transform: rotate(-90deg);
+		transform-origin: 50% 50%;
+	}
+
+	.progress-ring__text {
+		font-size: 1.2rem;
+		font-weight: bold;
+		fill: #333;
+	}
+</style>
