@@ -35,8 +35,7 @@ habit-tracker/
 │   ├── lib/                # Library of reusable components and utilities
 │   │   ├── components/
 │   │   │   ├── HabitCard.svelte    # Component for each habit display
-│   │   │   ├── HabitList.svelte    # List of all habits
-│   │   │   └── ProgressRing.svelte # Visual progress ring for habits
+│   │   │   └── HabitList.svelte    # List of all habits
 │   │   ├── styles/         # Global SCSS styles
 │   │   ├── stores/             # Svelte stores for global state
 │   │   │   └── habitsStore.ts  # Store for managing habit data
@@ -90,14 +89,6 @@ To build the project for production, run:
 
 ```bash
 pnpm build
-```
-
-### Testing
-
-To run end-to-end tests with Playwright:
-
-```bash
-pnpm test:e2e
 ```
 
 ## Contributing

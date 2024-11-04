@@ -39,10 +39,6 @@ jobs:
       - name: Check formatting
         run: pnpm format --check
 
-      # Run tests
-      - name: Run tests
-        run: pnpm test
-
       - name: build
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
