@@ -1,7 +1,7 @@
 // src/lib/styles/main.scss
 
 @use 'sass:color';
-@import 'variables.scss';
+@use '$lib/styles/variables' as *;
 
 // Reset de styles de base
 *,

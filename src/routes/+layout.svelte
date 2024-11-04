@@ -15,7 +15,7 @@
 
 <style lang="scss">
 	@use 'sass:color';
-	@import '$lib/styles/variables.scss';
+	@use '$lib/styles/variables' as *;
 
 	.container {
 		max-width: 800px;

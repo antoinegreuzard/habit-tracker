@@ -18,7 +18,7 @@
 </div>
 
 <style lang="scss">
-	@import '$lib/styles/variables.scss';
+	@use '$lib/styles/variables' as *;
 
 	.habit-list {
 		display: flex;

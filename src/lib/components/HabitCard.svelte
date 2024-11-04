@@ -41,7 +41,7 @@
 
 <style lang="scss">
 	@use 'sass:color';
-	@import '$lib/styles/variables.scss';
+	@use '$lib/styles/variables' as *;
 
 	.habit-card {
 		position: relative;

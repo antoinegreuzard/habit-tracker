@@ -10,7 +10,7 @@
 </div>
 
 <style lang="scss">
-	@import '$lib/styles/variables.scss';
+	@use '$lib/styles/variables' as *;
 
 	.error-page {
 		display: flex;
