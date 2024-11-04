@@ -18,7 +18,9 @@ body {
 	color: $text-color;
 	background-color: $secondary-color;
 	line-height: 1.6;
-	transition: background-color 0.3s, color 0.3s;
+	transition:
+		background-color 0.3s,
+		color 0.3s;
 }
 
 // Titres
@@ -60,7 +62,10 @@ button {
 	border: none;
 	border-radius: $border-radius;
 	cursor: pointer;
-	transition: background-color 0.3s, transform 0.1s ease-in-out, box-shadow 0.2s;
+	transition:
+		background-color 0.3s,
+		transform 0.1s ease-in-out,
+		box-shadow 0.2s;
 
 	&:hover {
 		background-color: $primary-color-dark;
@@ -89,7 +94,9 @@ select {
 	border-radius: $border-radius;
 	width: 100%;
 	margin-bottom: 1rem;
-	transition: border-color 0.3s, box-shadow 0.3s;
+	transition:
+		border-color 0.3s,
+		box-shadow 0.3s;
 
 	&:focus {
 		border-color: $accent-color;
@@ -106,7 +113,9 @@ textarea {
 	width: 100%;
 	height: 100px;
 	resize: vertical;
-	transition: border-color 0.3s, box-shadow 0.3s;
+	transition:
+		border-color 0.3s,
+		box-shadow 0.3s;
 
 	&:focus {
 		border-color: $accent-color;
@@ -140,13 +149,25 @@ textarea {
 }
 
 // Classes utilitaires pour espacements et alignements
-.mt-1 { margin-top: $spacing-small; }
-.mt-2 { margin-top: $spacing-base; }
-.mt-3 { margin-top: $spacing-large; }
+.mt-1 {
+	margin-top: $spacing-small;
+}
+.mt-2 {
+	margin-top: $spacing-base;
+}
+.mt-3 {
+	margin-top: $spacing-large;
+}
 
-.mb-1 { margin-bottom: $spacing-small; }
-.mb-2 { margin-bottom: $spacing-base; }
-.mb-3 { margin-bottom: $spacing-large; }
+.mb-1 {
+	margin-bottom: $spacing-small;
+}
+.mb-2 {
+	margin-bottom: $spacing-base;
+}
+.mb-3 {
+	margin-bottom: $spacing-large;
+}
 
 .flex {
 	display: flex;
@@ -165,11 +186,20 @@ textarea {
 
 // Animations
 @keyframes fadeIn {
-	from { opacity: 0; }
-	to { opacity: 1; }
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 @keyframes bounce {
-	0%, 100% { transform: translateY(0); }
-	50% { transform: translateY(-5px); }
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-5px);
+	}
 }

@@ -59,7 +59,9 @@
 	}
 
 	.progress-ring__circle {
-		transition: stroke-dashoffset 0.35s, stroke 0.35s;
+		transition:
+			stroke-dashoffset 0.35s,
+			stroke 0.35s;
 		transform: rotate(-90deg);
 		transform-origin: 50% 50%;
 		filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));

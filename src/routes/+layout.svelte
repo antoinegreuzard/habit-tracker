@@ -14,7 +14,7 @@
 </div>
 
 <style lang="scss">
-	@use "sass:color";
+	@use 'sass:color';
 	@import '$lib/styles/variables.scss';
 
 	.container {
@@ -42,7 +42,9 @@
 			font-size: $font-size-large;
 			font-weight: bold;
 			margin: 0;
-			transition: transform 0.2s ease-in-out, color 0.3s;
+			transition:
+				transform 0.2s ease-in-out,
+				color 0.3s;
 		}
 
 		&:hover h1 {

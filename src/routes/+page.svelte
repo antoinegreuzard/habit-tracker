@@ -44,7 +44,12 @@
 			<span class="habit-info">
 				<strong>{habit.name}</strong> - <em>{habit.frequency}</em>
 			</span>
-			<button on:click={() => completeHabit(habit)} class:completed={habit.completedDates.some((date) => formatDate(date) === formatDate(today))}>
+			<button
+				on:click={() => completeHabit(habit)}
+				class:completed={habit.completedDates.some(
+					(date) => formatDate(date) === formatDate(today)
+				)}
+			>
 				{habit.completedDates.some((date) => formatDate(date) === formatDate(today))
 					? 'Complété'
 					: 'Compléter'}
@@ -54,7 +59,7 @@
 </div>
 
 <style lang="scss">
-	@use "sass:color";
+	@use 'sass:color';
 	@import '$lib/styles/variables.scss';
 
 	h1 {
@@ -80,7 +85,9 @@
 		background-color: $secondary-color;
 		color: $text-color;
 		box-shadow: $box-shadow-light;
-		transition: border-color 0.3s, box-shadow 0.3s;
+		transition:
+			border-color 0.3s,
+			box-shadow 0.3s;
 
 		&:focus {
 			border-color: $primary-color;
@@ -97,7 +104,9 @@
 		border: none;
 		border-radius: $border-radius-small;
 		cursor: pointer;
-		transition: background-color 0.3s, transform 0.1s ease-in-out;
+		transition:
+			background-color 0.3s,
+			transform 0.1s ease-in-out;
 
 		&:hover {
 			background-color: $accent-color-dark;
@@ -125,7 +134,9 @@
 		border-radius: $border-radius;
 		background-color: $background-color;
 		box-shadow: $box-shadow-light;
-		transition: box-shadow 0.3s, transform 0.1s ease-in-out;
+		transition:
+			box-shadow 0.3s,
+			transform 0.1s ease-in-out;
 
 		&:hover {
 			box-shadow: $box-shadow-medium;
@@ -145,7 +156,9 @@
 			color: #ffffff;
 			cursor: pointer;
 			background-color: $primary-color;
-			transition: background-color 0.3s, box-shadow 0.2s;
+			transition:
+				background-color 0.3s,
+				box-shadow 0.2s;
 
 			&:hover {
 				background-color: $primary-color-dark;

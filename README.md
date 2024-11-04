@@ -58,11 +58,13 @@ Make sure you have [Node.js](https://nodejs.org/) installed.
 ### Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/antoinegreuzard/habit-tracker.git
    ```
 
 2. Navigate into the project directory:
+
    ```bash
    cd habit-tracker
    ```

@@ -23,7 +23,7 @@
 
 <div class="habit-card">
 	{#if showConfetti}
-		<Confetti />
+		<Confetti confettiCount={200} spread={120} gravity={0.5} />
 	{/if}
 
 	<div class="habit-details">
@@ -53,7 +53,9 @@
 		border-radius: $border-radius;
 		background-color: $background-color;
 		box-shadow: $box-shadow-light;
-		transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		transition:
+			transform 0.2s ease-in-out,
+			box-shadow 0.2s ease-in-out;
 
 		&:hover {
 			transform: scale(1.02);
@@ -86,7 +88,10 @@
 		background-color: $primary-color;
 		color: #ffffff;
 		font-weight: 600;
-		transition: background-color 0.3s, box-shadow 0.2s, transform 0.1s;
+		transition:
+			background-color 0.3s,
+			box-shadow 0.2s,
+			transform 0.1s;
 
 		&:hover:not(:disabled) {
 			background-color: $primary-color-dark;

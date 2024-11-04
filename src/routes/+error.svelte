@@ -44,7 +44,9 @@
 			text-decoration: none;
 			border-radius: $border-radius-small;
 			box-shadow: $box-shadow-light;
-			transition: background-color 0.3s, transform 0.2s;
+			transition:
+				background-color 0.3s,
+				transform 0.2s;
 
 			&:hover {
 				background-color: $primary-color-dark;
