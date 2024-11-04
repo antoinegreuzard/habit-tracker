@@ -1,5 +1,8 @@
+<!-- src/routes/+layout.svelte -->
 <div class="container">
-	<header>Habit Tracker</header>
+	<header>
+		<h1>Habit Tracker</h1>
+	</header>
 
 	<main>
 		<slot />
@@ -10,34 +13,58 @@
 	</footer>
 </div>
 
-<!-- src/routes/+layout.svelte -->
-
 <style lang="scss">
+	@use "sass:color";
+	@import '$lib/styles/variables.scss';
+
 	.container {
 		max-width: 800px;
 		margin: 0 auto;
-		padding: 1rem;
+		padding: $spacing-base;
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+		background-color: $secondary-color;
+		border-radius: $border-radius;
+		box-shadow: $box-shadow-medium;
 	}
 
 	header {
 		text-align: center;
-		padding: 1rem 0;
-		font-size: 1.5rem;
-		font-weight: bold;
-		background-color: #f8f8f8;
-		border-bottom: 1px solid #ddd;
+		padding: $spacing-large 0;
+		background-color: $primary-color;
+		color: #ffffff;
+		border-radius: $border-radius-small;
+		box-shadow: $box-shadow-light;
+		margin-bottom: $spacing-base;
+
+		h1 {
+			font-size: $font-size-large;
+			font-weight: bold;
+			margin: 0;
+			transition: transform 0.2s ease-in-out, color 0.3s;
+		}
+
+		&:hover h1 {
+			transform: scale(1.05);
+			color: color.scale($secondary-color, $lightness: 10%);
+		}
 	}
 
 	main {
-		margin-top: 1rem;
+		flex: 1;
+		margin-top: $spacing-base;
 	}
 
 	footer {
 		text-align: center;
-		padding: 1rem 0;
-		font-size: 0.875rem;
-		color: #777;
-		border-top: 1px solid #ddd;
-		margin-top: 2rem;
+		padding: $spacing-base 0;
+		font-size: $font-size-small;
+		color: $text-muted-color;
+		border-top: 1px solid color.scale($text-muted-color, $lightness: 30%);
+		margin-top: $spacing-large;
+		background-color: $secondary-color;
+		border-radius: $border-radius-small;
+		box-shadow: $box-shadow-light;
 	}
 </style>

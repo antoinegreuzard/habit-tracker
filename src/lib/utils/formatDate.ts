@@ -1,4 +1,4 @@
-// src/utils/formatDate.ts
+// src/lib/utils/formatDate.ts
 
 /**
  * Formate une date en chaîne de caractères lisible.

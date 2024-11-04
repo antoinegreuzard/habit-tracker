@@ -1,6 +1,8 @@
 <!-- src/lib/components/ProgressRing.svelte -->
 <script lang="ts">
 	export let progress = 0; // Le pourcentage de progression, de 0 à 100
+	export let color = '#4caf50'; // Couleur de progression par défaut
+	export let backgroundColor = '#e6e6e6'; // Couleur de fond par défaut
 
 	// Configuration de l'anneau
 	const radius = 50; // Rayon de l'anneau
@@ -15,8 +17,8 @@
 <div class="progress-ring">
 	<svg width="120" height="120">
 		<circle
-			class="progress-ring__circle"
-			stroke="#e6e6e6"
+			class="progress-ring__background"
+			stroke={backgroundColor}
 			fill="transparent"
 			stroke-width={stroke}
 			r={normalizedRadius}
@@ -25,7 +27,7 @@
 		/>
 		<circle
 			class="progress-ring__circle"
-			stroke="#4caf50"
+			stroke={color}
 			fill="transparent"
 			stroke-width={stroke}
 			stroke-dasharray="{circumference} {circumference}"
@@ -47,12 +49,20 @@
 		align-items: center;
 		width: 120px;
 		height: 120px;
+		position: relative;
 	}
 
-	.progress-ring__circle {
+	.progress-ring__background {
 		transition: stroke-dashoffset 0.35s;
 		transform: rotate(-90deg);
 		transform-origin: 50% 50%;
+	}
+
+	.progress-ring__circle {
+		transition: stroke-dashoffset 0.35s, stroke 0.35s;
+		transform: rotate(-90deg);
+		transform-origin: 50% 50%;
+		filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 	}
 
 	.progress-ring__text {

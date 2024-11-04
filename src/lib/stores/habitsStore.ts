@@ -1,4 +1,4 @@
-// src/stores/habitsStore.ts
+// src/lib/stores/habitsStore.ts
 
 import { writable } from 'svelte/store';
 

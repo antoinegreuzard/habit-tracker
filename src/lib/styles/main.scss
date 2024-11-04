@@ -1,5 +1,6 @@
 // src/lib/styles/main.scss
 
+@use 'sass:color';
 @import 'variables.scss';
 
 // Reset de styles de base
@@ -17,53 +18,69 @@ body {
 	color: $text-color;
 	background-color: $secondary-color;
 	line-height: 1.6;
+	transition: background-color 0.3s, color 0.3s;
 }
 
+// Titres
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-	color: $primary-color;
+	color: $primary-color-dark;
+	margin-bottom: $spacing-small;
+	font-weight: bold;
 }
 
 p {
 	color: $text-muted-color;
+	margin-bottom: $spacing-small;
 }
 
-// Liens
+// Liens avec transitions et accentuation
 a {
 	color: $accent-color;
 	text-decoration: none;
+	font-weight: 500;
+	transition: color 0.3s;
 
 	&:hover {
+		color: $accent-color-dark;
 		text-decoration: underline;
 	}
 }
 
-// Boutons par défaut
+// Boutons par défaut (avec style modernisé et effet de clic)
 button {
 	background-color: $primary-color;
 	color: white;
 	font-size: $font-size-base;
-	padding: 0.5rem 1rem;
+	padding: 0.75rem 1.25rem;
 	border: none;
 	border-radius: $border-radius;
 	cursor: pointer;
-	transition: background-color 0.3s;
+	transition: background-color 0.3s, transform 0.1s ease-in-out, box-shadow 0.2s;
 
 	&:hover {
-		background-color: darken($primary-color, 10%);
+		background-color: $primary-color-dark;
+		box-shadow: $box-shadow-light;
+		transform: scale(1.05);
+	}
+
+	&:active {
+		transform: scale(0.98);
+		box-shadow: none;
 	}
 
 	&:disabled {
-		background-color: #bbb;
+		background-color: color.scale($text-muted-color, $lightness: 10%);
 		cursor: not-allowed;
+		opacity: 0.6;
 	}
 }
 
-// Formulaires
+// Formulaires avec effets focus et survol
 input,
 select {
 	font-size: $font-size-base;
@@ -72,11 +89,87 @@ select {
 	border-radius: $border-radius;
 	width: 100%;
 	margin-bottom: 1rem;
+	transition: border-color 0.3s, box-shadow 0.3s;
+
+	&:focus {
+		border-color: $accent-color;
+		box-shadow: 0 0 4px rgba($accent-color, 0.5);
+		outline: none;
+	}
 }
 
-// Conteneurs
+textarea {
+	font-size: $font-size-base;
+	padding: 0.5rem;
+	border: 1px solid #ddd;
+	border-radius: $border-radius;
+	width: 100%;
+	height: 100px;
+	resize: vertical;
+	transition: border-color 0.3s, box-shadow 0.3s;
+
+	&:focus {
+		border-color: $accent-color;
+		box-shadow: 0 0 4px rgba($accent-color, 0.5);
+		outline: none;
+	}
+}
+
+// Conteneurs centralisés avec marges
 .container {
 	max-width: 800px;
 	margin: 0 auto;
-	padding: 1rem;
+	padding: $spacing-base;
+	background-color: $background-color;
+	border-radius: $border-radius;
+	box-shadow: $box-shadow-light;
+}
+
+// Cartes et éléments de premier plan
+.card {
+	background-color: $background-color;
+	border-radius: $border-radius;
+	box-shadow: $box-shadow-light;
+	padding: $spacing-base;
+	margin-bottom: $spacing-base;
+	transition: box-shadow 0.3s;
+
+	&:hover {
+		box-shadow: $box-shadow-medium;
+	}
+}
+
+// Classes utilitaires pour espacements et alignements
+.mt-1 { margin-top: $spacing-small; }
+.mt-2 { margin-top: $spacing-base; }
+.mt-3 { margin-top: $spacing-large; }
+
+.mb-1 { margin-bottom: $spacing-small; }
+.mb-2 { margin-bottom: $spacing-base; }
+.mb-3 { margin-bottom: $spacing-large; }
+
+.flex {
+	display: flex;
+}
+
+.flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+// Animations
+@keyframes fadeIn {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes bounce {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(-5px); }
 }

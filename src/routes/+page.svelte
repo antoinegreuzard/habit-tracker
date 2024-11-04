@@ -41,8 +41,10 @@
 <div class="habit-list">
 	{#each $habitsStore as habit}
 		<div class="habit-item">
-			<span>{habit.name} - {habit.frequency}</span>
-			<button on:click={() => completeHabit(habit)}>
+			<span class="habit-info">
+				<strong>{habit.name}</strong> - <em>{habit.frequency}</em>
+			</span>
+			<button on:click={() => completeHabit(habit)} class:completed={habit.completedDates.some((date) => formatDate(date) === formatDate(today))}>
 				{habit.completedDates.some((date) => formatDate(date) === formatDate(today))
 					? 'Complété'
 					: 'Compléter'}
@@ -52,29 +54,108 @@
 </div>
 
 <style lang="scss">
+	@use "sass:color";
+	@import '$lib/styles/variables.scss';
+
+	h1 {
+		text-align: center;
+		font-size: $font-size-xlarge;
+		color: $primary-color-dark;
+		margin-bottom: $spacing-large;
+	}
+
+	.add-habit {
+		display: flex;
+		gap: $spacing-small;
+		margin-bottom: $spacing-large;
+		justify-content: center;
+	}
+
+	.add-habit input,
+	.add-habit select {
+		padding: 0.75rem;
+		border: 1px solid color.scale($text-color, $lightness: 40%);
+		border-radius: $border-radius-small;
+		font-size: $font-size-base;
+		background-color: $secondary-color;
+		color: $text-color;
+		box-shadow: $box-shadow-light;
+		transition: border-color 0.3s, box-shadow 0.3s;
+
+		&:focus {
+			border-color: $primary-color;
+			box-shadow: 0 0 6px rgba($primary-color, 0.4);
+			outline: none;
+		}
+	}
+
+	.add-habit button {
+		padding: 0.75rem 1.5rem;
+		font-size: $font-size-base;
+		background-color: $accent-color;
+		color: #ffffff;
+		border: none;
+		border-radius: $border-radius-small;
+		cursor: pointer;
+		transition: background-color 0.3s, transform 0.1s ease-in-out;
+
+		&:hover {
+			background-color: $accent-color-dark;
+			transform: scale(1.05);
+		}
+
+		&:active {
+			transform: scale(0.98);
+		}
+	}
+
 	.habit-list {
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: $spacing-base;
+		margin-top: $spacing-base;
 	}
 
 	.habit-item {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 1rem;
-		border: 1px solid #ddd;
-		border-radius: 0.5rem;
-	}
+		padding: $spacing-base;
+		border: 1px solid color.scale($text-color, $lightness: 40%);
+		border-radius: $border-radius;
+		background-color: $background-color;
+		box-shadow: $box-shadow-light;
+		transition: box-shadow 0.3s, transform 0.1s ease-in-out;
 
-	.add-habit {
-		display: flex;
-		gap: 0.5rem;
-	}
+		&:hover {
+			box-shadow: $box-shadow-medium;
+			transform: scale(1.02);
+		}
 
-	.add-habit input,
-	.add-habit select,
-	.add-habit button {
-		padding: 0.5rem;
+		.habit-info {
+			font-size: $font-size-large;
+			color: $text-color;
+		}
+
+		button {
+			padding: 0.5rem 1rem;
+			font-size: $font-size-small;
+			border-radius: $border-radius-small;
+			border: none;
+			color: #ffffff;
+			cursor: pointer;
+			background-color: $primary-color;
+			transition: background-color 0.3s, box-shadow 0.2s;
+
+			&:hover {
+				background-color: $primary-color-dark;
+				box-shadow: $box-shadow-light;
+			}
+
+			&.completed {
+				background-color: $text-muted-color;
+				cursor: default;
+			}
+		}
 	}
 </style>
